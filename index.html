@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Maison Noisette — Café & Pâtisserie</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#FBF5EC;--bg2:#F6ECDF;--card:#fffaf3;--ink:#45302A;--mute:#7d6a60;--blush:#F4D8D0;--sage:#D3E0CF;--butter:#F6E7B8;--latte:#C49A7C;--acc:#B5654F;--line:rgba(69,48,42,.12);--sh:0 18px 40px -22px rgba(69,48,42,.35);
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#2a1f1b;--bg2:#33261f;--card:#3b2d26;--ink:#f6ebdd;--mute:#c4b2a3;--blush:#5a3f3a;--sage:#3f4a3e;--butter:#5c5236;--line:rgba(246,235,221,.14)}}
+:root[data-theme="dark"]{--bg:#2a1f1b;--bg2:#33261f;--card:#3b2d26;--ink:#f6ebdd;--mute:#c4b2a3;--blush:#5a3f3a;--sage:#3f4a3e;--butter:#5c5236;--line:rgba(246,235,221,.14)}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+body{background:var(--bg);color:var(--ink);font:400 16px/1.65 'DM Sans',system-ui,sans-serif;overflow-x:hidden}
+h1,h2,h3,.serif{font-family:'Fraunces',Georgia,serif;font-weight:400;line-height:1.1;letter-spacing:-.01em}
+h2{font-size:clamp(2rem,5vw,3.2rem)}
+em{font-style:italic;color:var(--acc)}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1180px;margin:0 auto;padding:0 22px}
+section{padding:92px 0}
+.eyebrow{font-size:.75rem;letter-spacing:.2em;text-transform:uppercase;color:var(--acc);font-weight:600;margin-bottom:14px;display:block}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:0 26px;border-radius:999px;font-weight:600;font-size:.95rem;border:1.5px solid var(--ink);cursor:pointer;transition:.3s;font-family:inherit}
+.btn.p{background:var(--ink);color:var(--bg)}.btn.p:hover{background:var(--acc);border-color:var(--acc);transform:translateY(-2px);box-shadow:var(--sh)}
+.btn.g{background:transparent;color:var(--ink)}.btn.g:hover{background:var(--ink);color:var(--bg)}
+:focus-visible{outline:3px solid var(--acc);outline-offset:3px}
+svg.i{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+/* nav */
+header{position:fixed;inset:0 0 auto 0;z-index:50;padding-top:env(safe-area-inset-top,0px);transition:.35s}
+header.s{background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(14px);box-shadow:0 1px 0 var(--line)}
+nav{display:flex;align-items:center;justify-content:space-between;height:74px}
+.logo{display:flex;align-items:center;gap:10px;font-family:'Fraunces',serif;font-size:1.35rem}
+.logo b{width:36px;height:36px;border-radius:50% 50% 50% 8px;background:var(--blush);display:grid;place-items:center;font-size:1.1rem;color:var(--acc)}
+.links{display:flex;align-items:center;gap:30px;font-size:.95rem;font-weight:500}
+.links a:not(.btn){position:relative}.links a:not(.btn)::after{content:"";position:absolute;left:0;bottom:-4px;height:1.5px;width:0;background:var(--acc);transition:.3s}.links a:not(.btn):hover::after{width:100%}
+.links .btn{min-height:42px;padding:0 20px}
+.burger{display:none;width:48px;height:48px;border:0;background:none;color:var(--ink);cursor:pointer}
+@media(max-width:860px){.burger{display:grid;place-items:center}
+.links{position:fixed;inset:0;background:var(--bg);flex-direction:column;justify-content:center;font-size:1.6rem;font-family:'Fraunces',serif;gap:26px;opacity:0;pointer-events:none;transition:.35s}
+.links.o{opacity:1;pointer-events:auto}.burger{position:relative;z-index:60}}
+/* hero */
+.hero{padding:130px 0 70px;min-height:100svh;display:flex;align-items:center;background:radial-gradient(circle at 85% 20%,var(--blush),transparent 45%),radial-gradient(circle at 5% 90%,var(--sage),transparent 40%),var(--bg)}
+.hg{display:grid;grid-template-columns:1.05fr .95fr;gap:50px;align-items:center}
+.hero h1{font-size:clamp(2.7rem,7vw,5.2rem);margin-bottom:22px}
+.hero p.l{font-size:1.15rem;color:var(--mute);max-width:470px;margin-bottom:32px}
+.cta{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:38px}
+.info{display:flex;gap:26px;flex-wrap:wrap;font-size:.9rem;color:var(--mute)}
+.info span{display:flex;gap:8px;align-items:center}
+.arch{position:relative;aspect-ratio:4/5;max-width:440px;margin-left:auto;border-radius:220px 220px 28px 28px;background:linear-gradient(180deg,var(--butter),var(--blush));box-shadow:var(--sh);display:grid;place-items:center;overflow:visible}
+.arch>svg{width:78%;filter:drop-shadow(0 24px 22px rgba(69,48,42,.22));animation:fl 6s ease-in-out infinite}
+.badge{position:absolute;left:-26px;bottom:48px;background:var(--card);padding:14px 18px;border-radius:18px;box-shadow:var(--sh);display:flex;gap:12px;align-items:center;font-size:.85rem;line-height:1.3}
+.badge strong{font-family:'Fraunces',serif;font-size:1.6rem;font-weight:600}
+@keyframes fl{50%{transform:translateY(-10px) rotate(-1.5deg)}}
+.hero .in{animation:up .9s both}.hero .in:nth-child(2){animation-delay:.12s}.hero .in:nth-child(3){animation-delay:.24s}.hero .in:nth-child(4){animation-delay:.36s}
+@keyframes up{from{opacity:0;transform:translateY(26px)}}
+@media(max-width:860px){.hg{grid-template-columns:1fr}.arch{margin:20px auto 0;max-width:340px}.badge{left:-6px}}
+/* about */
+.ab{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}
+.pic{aspect-ratio:1/1.05;border-radius:28px 160px 28px 28px;background:var(--sage);display:grid;place-items:center;box-shadow:var(--sh)}
+.pic svg{width:70%}
+.ab p{color:var(--mute);margin:20px 0 34px;max-width:480px}
+.st{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;border-top:1px solid var(--line);padding-top:26px}
+.st b{display:block;font:600 2.1rem 'Fraunces',serif;color:var(--acc)}.st span{font-size:.85rem;color:var(--mute)}
+@media(max-width:860px){.ab{grid-template-columns:1fr;gap:36px}}
+/* menu */
+#menu{background:var(--bg2)}
+.hd{text-align:center;max-width:560px;margin:0 auto 40px}.hd p{color:var(--mute);margin-top:12px}
+.tabs{display:flex;justify-content:center;gap:10px;margin-bottom:44px;flex-wrap:wrap}
+.tabs button{min-height:44px;padding:0 24px;border-radius:999px;border:1.5px solid var(--line);background:transparent;color:var(--ink);font:500 .95rem 'DM Sans';cursor:pointer;transition:.25s}
+.tabs button:hover{border-color:var(--ink)}.tabs button[aria-pressed=true]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.mg{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:22px}
+.mc{background:var(--card);border-radius:24px;overflow:hidden;box-shadow:0 1px 0 var(--line);transition:.4s;animation:up .5s both}
+.mc:hover{transform:translateY(-6px);box-shadow:var(--sh)}
+.mi{aspect-ratio:4/3;display:grid;place-items:center;overflow:hidden}.mi svg{width:52%;transition:.5s}.mc:hover .mi svg{transform:scale(1.1) rotate(-3deg)}
+.mb{padding:20px 22px 24px}.mt{display:flex;justify-content:space-between;gap:10px;align-items:baseline}
+.mt h3{font-size:1.2rem;font-weight:600}.mt span{font-weight:600;color:var(--acc)}
+.mb p{font-size:.9rem;color:var(--mute);margin-top:6px}
+/* features */
+.fg{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:22px}
+.f{padding:34px 28px;border-radius:26px;transition:.4s}.f:hover{transform:translateY(-6px)}
+.f:nth-child(1){background:var(--blush)}.f:nth-child(2){background:var(--butter)}.f:nth-child(3){background:var(--sage)}.f:nth-child(4){background:var(--bg2);box-shadow:inset 0 0 0 1px var(--line)}
+.f .ic{width:54px;height:54px;border-radius:16px;background:var(--card);display:grid;place-items:center;margin-bottom:22px;color:var(--acc);transition:.4s}.f:hover .ic{transform:rotate(-8deg) scale(1.08)}
+.f .ic svg{width:26px;height:26px}.f h3{font-size:1.3rem;margin-bottom:8px}.f p{font-size:.92rem;color:var(--mute)}
+/* gallery */
+#gallery{background:var(--bg2)}
+.gg{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:170px;gap:16px}
+.gi{border-radius:22px;display:grid;place-items:center;position:relative;overflow:hidden;cursor:default}
+.gi svg{width:46%;max-height:76%;transition:.6s}.gi:hover svg{transform:scale(1.14) rotate(4deg)}
+.gi span{position:absolute;left:14px;bottom:12px;background:var(--card);padding:5px 14px;border-radius:99px;font-size:.78rem;font-weight:600;opacity:0;transform:translateY(8px);transition:.3s}
+.gi:hover span{opacity:1;transform:none}
+.gi.w{grid-column:span 2}.gi.t{grid-row:span 2}
+@media(max-width:860px){.gg{grid-template-columns:repeat(2,1fr);grid-auto-rows:150px}.gi span{opacity:1;transform:none}}
+/* reviews */
+.rg{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:22px}
+.r{background:var(--card);padding:32px;border-radius:26px;box-shadow:0 1px 0 var(--line);position:relative}
+.r::before{content:"“";position:absolute;top:8px;right:24px;font:6rem/1 'Fraunces',serif;color:var(--blush)}
+.stars{color:#D9A441;letter-spacing:3px;margin-bottom:14px}
+.r p{font-family:'Fraunces',serif;font-size:1.12rem;line-height:1.55;margin-bottom:24px}
+.who{display:flex;gap:12px;align-items:center;font-size:.88rem}.who i{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;font:600 1rem 'Fraunces',serif;font-style:normal}.who small{display:block;color:var(--mute)}
+/* contact */
+#contact{background:var(--bg2)}
+.cg{display:grid;grid-template-columns:1fr 1.1fr;gap:48px;align-items:stretch}
+.ci{list-style:none;padding:0;margin:26px 0 30px;display:grid;gap:18px}
+.ci li{display:flex;gap:14px;align-items:flex-start}.ci .ic{flex:none;width:42px;height:42px;border-radius:50%;background:var(--blush);display:grid;place-items:center;color:var(--acc)}
+.ci small{color:var(--mute);display:block}
+.map{border-radius:28px;min-height:360px;overflow:hidden;position:relative;box-shadow:var(--sh);background:var(--sage)}
+.map svg.m{width:100%;height:100%;position:absolute;inset:0}
+.pin{position:absolute;left:52%;top:46%;transform:translate(-50%,-100%);text-align:center}
+.pin b{display:block;background:var(--card);padding:8px 16px;border-radius:99px;font-size:.85rem;box-shadow:var(--sh);margin-bottom:6px;white-space:nowrap}
+.pin i{display:block;width:22px;height:22px;margin:auto;background:var(--acc);border-radius:50% 50% 50% 0;transform:rotate(-45deg);box-shadow:0 0 0 8px rgba(181,101,79,.2);animation:pu 2s infinite}
+@keyframes pu{50%{box-shadow:0 0 0 14px rgba(181,101,79,0)}}
+@media(max-width:860px){.cg{grid-template-columns:1fr}}
+/* final */
+.fin{background:var(--ink);color:#FBF5EC;border-radius:36px;padding:72px 28px;text-align:center;position:relative;overflow:hidden}
+.fin::before,.fin::after{content:"";position:absolute;border-radius:50%;filter:blur(2px);opacity:.18}
+.fin::before{width:320px;height:320px;background:var(--blush);left:-90px;top:-120px}.fin::after{width:260px;height:260px;background:var(--sage);right:-70px;bottom:-110px}
+.fin>*{position:relative}.fin h2{max-width:700px;margin:0 auto 14px}.fin em{color:var(--blush)}.fin p{opacity:.75;margin-bottom:30px}
+.fin .btn.p{background:#FBF5EC;color:#45302A;border-color:#FBF5EC}.fin .btn.p:hover{background:var(--blush);border-color:var(--blush)}
+form{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;max-width:560px;margin:0 auto}
+form input,form select{min-height:50px;border-radius:14px;border:1px solid rgba(251,245,236,.25);background:rgba(251,245,236,.08);color:#FBF5EC;padding:0 16px;font:inherit}
+form input::placeholder{color:rgba(251,245,236,.6)}form option{color:#45302A}
+form .btn{grid-column:1/-1}
+#ok{margin-top:16px;color:var(--butter);min-height:1.6em}
+@media(max-width:560px){form{grid-template-columns:1fr}}
+footer{padding:70px 0 34px}
+.fg2{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:40px;padding-bottom:40px;border-bottom:1px solid var(--line)}
+footer p,footer li{color:var(--mute);font-size:.92rem}footer ul{list-style:none;padding:0;display:grid;gap:8px}footer h4{font:600 .8rem 'DM Sans';letter-spacing:.15em;text-transform:uppercase;margin-bottom:14px}
+footer li a:hover{color:var(--acc)}
+.so{display:flex;gap:10px;margin-top:20px}.so a{width:44px;height:44px;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center;transition:.3s}.so a:hover{background:var(--ink);color:var(--bg);transform:translateY(-3px)}
+.cp{padding-top:24px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;font-size:.82rem;color:var(--mute)}
+@media(max-width:760px){.fg2{grid-template-columns:1fr}section{padding:68px 0}}
+/* reveal */
+.rv{opacity:0;transform:translateY(30px);transition:opacity .8s,transform .8s}.rv.v{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+<defs>
+<symbol id="cup" viewBox="0 0 100 100"><ellipse cx="50" cy="56" rx="46" ry="40" fill="#fff" opacity=".7"/><circle cx="50" cy="50" r="36" fill="#fffaf3"/><circle cx="50" cy="50" r="28" fill="#8a5a44"/><circle cx="50" cy="50" r="24" fill="#c99a78"/><path d="M50 66C36 56 36 44 44 42c4-1 6 2 6 5 0-3 2-6 6-5 8 2 8 14-6 24z" fill="#fff6ea"/><path d="M86 46c10 0 10 14 0 14" fill="none" stroke="#fffaf3" stroke-width="6" stroke-linecap="round"/></symbol>
+<symbol id="cro" viewBox="0 0 100 100"><g fill="#E3A95F"><ellipse cx="50" cy="56" rx="14" ry="26"/><ellipse cx="33" cy="58" rx="11" ry="21" transform="rotate(32 33 58)"/><ellipse cx="67" cy="58" rx="11" ry="21" transform="rotate(-32 67 58)"/><ellipse cx="19" cy="64" rx="8" ry="15" transform="rotate(62 19 64)"/><ellipse cx="81" cy="64" rx="8" ry="15" transform="rotate(-62 81 64)"/></g><g fill="none" stroke="#B9783A" stroke-width="2" stroke-linecap="round"><path d="M40 36q-4 20 0 40M60 36q4 20 0 40M25 48q-6 12 -4 22M75 48q6 12 4 22"/></g></symbol>
+<symbol id="cake" viewBox="0 0 100 100"><path d="M10 78L90 78 90 50 10 30z" fill="#F8D9D6"/><path d="M10 60L90 66" stroke="#fffaf3" stroke-width="6"/><path d="M10 30L90 50 90 42 10 22z" fill="#fff6ea"/><path d="M10 78h80v6H10z" fill="#C49A7C"/><circle cx="50" cy="28" r="8" fill="#B5314A"/><path d="M50 21q2-6 7-7" stroke="#6b8f5a" stroke-width="3" fill="none" stroke-linecap="round"/></symbol>
+<symbol id="toast" viewBox="0 0 100 100"><rect x="12" y="14" width="76" height="74" rx="22" fill="#E8C48D"/><rect x="20" y="22" width="60" height="58" rx="16" fill="#F6E3BC"/><path d="M26 60c8-14 28-22 48-8 0 18-16 26-30 22z" fill="#8FB07A"/><ellipse cx="50" cy="48" rx="19" ry="16" fill="#fff"/><circle cx="50" cy="48" r="9" fill="#F2B84B"/></symbol>
+<symbol id="ice" viewBox="0 0 100 100"><path d="M26 22h48l-6 66H32z" fill="#fff" opacity=".65" stroke="#C49A7C" stroke-width="2"/><path d="M29 44h42l-3 44H32z" fill="#b98a68"/><path d="M28 36h44l-1 8H29z" fill="#F4E4CF"/><rect x="36" y="48" width="14" height="14" rx="3" fill="#fff" opacity=".6" transform="rotate(-10 43 55)"/><rect x="52" y="60" width="13" height="13" rx="3" fill="#fff" opacity=".6" transform="rotate(12 58 66)"/><path d="M58 10L52 50" stroke="#B5654F" stroke-width="4" stroke-linecap="round"/></symbol>
+<symbol id="tart" viewBox="0 0 100 100"><ellipse cx="50" cy="62" rx="40" ry="24" fill="#E3B27A"/><ellipse cx="50" cy="56" rx="34" ry="19" fill="#F6E7B8"/><g fill="#D2415D"><circle cx="38" cy="52" r="7"/><circle cx="54" cy="48" r="7"/><circle cx="64" cy="58" r="7"/><circle cx="46" cy="62" r="7"/></g><circle cx="52" cy="46" r="2" fill="#6b8f5a"/></symbol>
+<symbol id="beans" viewBox="0 0 100 100"><g fill="#6b4331"><ellipse cx="34" cy="38" rx="17" ry="24" transform="rotate(-35 34 38)"/><ellipse cx="66" cy="44" rx="17" ry="24" transform="rotate(28 66 44)"/><ellipse cx="46" cy="72" rx="17" ry="24" transform="rotate(75 46 72)"/></g><g stroke="#3e261b" stroke-width="2.5" fill="none" stroke-linecap="round"><path d="M22 52q16-14 24-30M54 62q14-14 24-6M30 62q18 6 30 16"/></g></symbol>
+<symbol id="plant" viewBox="0 0 100 100"><path d="M34 62h32l-5 30H39z" fill="#C49A7C"/><g fill="#7FA074"><ellipse cx="50" cy="36" rx="9" ry="26"/><ellipse cx="34" cy="46" rx="8" ry="22" transform="rotate(-30 34 46)"/><ellipse cx="66" cy="46" rx="8" ry="22" transform="rotate(30 66 46)"/></g></symbol>
+<symbol id="lamp" viewBox="0 0 100 100"><path d="M50 4v30" stroke="#45302A" stroke-width="2.5"/><path d="M24 70q0-34 26-36t26 36z" fill="#F6E7B8"/><circle cx="50" cy="74" r="7" fill="#fff3c4"/></symbol>
+<symbol id="chat" viewBox="0 0 100 100"><circle cx="38" cy="44" r="16" fill="#E8B9A8"/><circle cx="66" cy="48" r="14" fill="#B8CDB2"/><path d="M12 92q2-30 26-30t26 30zM44 92q2-24 22-24t22 24z" fill="#C49A7C" opacity=".85"/><rect x="58" y="14" width="30" height="20" rx="10" fill="#fffaf3"/></symbol>
+</defs>
+</svg>
+
+<header id="hd"><div class="wrap"><nav aria-label="Main">
+<a class="logo" href="#home" aria-label="Maison Noisette home"><b>N</b>Maison Noisette</a>
+<button class="burger" id="bg" aria-label="Open menu" aria-expanded="false"><svg class="i" viewBox="0 0 24 24"><path d="M4 8h16M4 16h16"/></svg></button>
+<div class="links" id="ln"><a href="#home">Home</a><a href="#about">About</a><a href="#menu">Menu</a><a href="#gallery">Gallery</a><a href="#contact">Contact</a><a class="btn p" href="#reserve">Reserve a Table</a></div>
+</nav></div></header>
+
+<main>
+<section class="hero" id="home"><div class="wrap hg">
+<div>
+<span class="eyebrow in">Café &amp; Pâtisserie · Est. 2019</span>
+<h1 class="in">Slow mornings,<br><em>beautifully</em> poured.</h1>
+<p class="l in">Small-batch coffee, butter-laminated pastries and a corner of calm — made fresh every morning.</p>
+<div class="cta in"><a class="btn p" href="#menu">Explore Menu</a><a class="btn g" href="#reserve">Reserve a Table</a></div>
+<div class="info in"><span><svg class="i" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Open daily · 7:30 am – 10 pm</span><span><svg class="i" viewBox="0 0 24 24"><path d="M12 21s7-6 7-12a7 7 0 0 0-14 0c0 6 7 12 7 12z"/><circle cx="12" cy="9" r="2.5"/></svg>24 Linden Row, Old Town</span></div>
+</div>
+<div class="arch in" role="img" aria-label="Illustration of a latte with heart-shaped latte art"><svg viewBox="0 0 100 100"><use href="#cup"/></svg>
+<div class="badge"><strong>4.9</strong><span>Loved by 1,200+<br>regulars</span></div></div>
+</div></section>
+
+<section id="about"><div class="wrap ab">
+<div class="pic rv" role="img" aria-label="Illustration of fresh croissants"><svg viewBox="0 0 100 100"><use href="#cro"/></svg></div>
+<div class="rv"><span class="eyebrow">Our story</span>
+<h2>A little café with a <em>big</em> love for craft.</h2>
+<p>Maison Noisette began as a tiny roastery and a single oven. Today we still roast in small batches, bake before sunrise and set every table like it's for a friend — because to us, it is.</p>
+<div class="st"><div><b>5+</b><span>Years of craft</span></div><div><b>20+</b><span>Signature dishes</span></div><div><b>4.9/5</b><span>Guest rating</span></div></div></div>
+</div></section>
+
+<section id="menu"><div class="wrap">
+<div class="hd rv"><span class="eyebrow">Signature menu</span><h2>Made to be <em>savoured</em></h2><p>Seasonal favourites, baked and brewed in-house every day.</p></div>
+<div class="tabs" role="group" aria-label="Menu categories" id="tb"></div>
+<div class="mg" id="mg"></div>
+</div></section>
+
+<section id="why"><div class="wrap">
+<div class="hd rv"><span class="eyebrow">The experience</span><h2>Why guests <em>return</em></h2></div>
+<div class="fg">
+<div class="f rv"><div class="ic"><svg class="i" viewBox="0 0 24 24"><path d="M5 9h11v5a5 5 0 0 1-5 5H10a5 5 0 0 1-5-5zM16 10h2a2 2 0 0 1 0 4h-2M8 3c0 2 2 2 0 4M12 3c0 2 2 2 0 4"/></svg></div><h3>Freshly Roasted</h3><p>Beans roasted weekly in our own roastery for a rounder, sweeter cup.</p></div>
+<div class="f rv"><div class="ic"><svg class="i" viewBox="0 0 24 24"><path d="M6 14a4 4 0 0 1 0-8 5 5 0 0 1 9-1 4.5 4.5 0 0 1 3 8.5M6 14h12v5H6z"/></svg></div><h3>Handcrafted Food</h3><p>Pastries, breads and jams made from scratch with local, seasonal produce.</p></div>
+<div class="f rv"><div class="ic"><svg class="i" viewBox="0 0 24 24"><path d="M12 3v4M7 9h10l1 6H6zM9 15v6M15 15v6"/></svg></div><h3>Cozy Ambience</h3><p>Warm light, soft music and plants in every corner. Stay a while.</p></div>
+<div class="f rv"><div class="ic"><svg class="i" viewBox="0 0 24 24"><path d="M2 9a15 15 0 0 1 20 0M5 12.5a10 10 0 0 1 14 0M8.5 16a5 5 0 0 1 7 0"/><circle cx="12" cy="19.5" r=".8"/></svg></div><h3>Work Friendly</h3><p>Free fast Wi-Fi, power sockets and quiet corners for focused hours.</p></div>
+</div></div></section>
+
+<section id="gallery"><div class="wrap">
+<div class="hd rv"><span class="eyebrow">Gallery</span><h2>A taste of the <em>atmosphere</em></h2></div>
+<div class="gg rv">
+<div class="gi w" style="background:var(--blush)"><svg viewBox="0 0 100 100"><use href="#cup"/></svg><span>Coffee</span></div>
+<div class="gi t" style="background:var(--sage)"><svg viewBox="0 0 100 100"><use href="#plant"/></svg><span>Interior</span></div>
+<div class="gi" style="background:var(--butter)"><svg viewBox="0 0 100 100"><use href="#cro"/></svg><span>Bakery</span></div>
+<div class="gi t" style="background:var(--bg);box-shadow:inset 0 0 0 1px var(--line)"><svg viewBox="0 0 100 100"><use href="#lamp"/></svg><span>Evenings</span></div>
+<div class="gi" style="background:var(--sage)"><svg viewBox="0 0 100 100"><use href="#toast"/></svg><span>Brunch</span></div>
+<div class="gi w" style="background:var(--butter)"><svg viewBox="0 0 100 100"><use href="#chat"/></svg><span>Community</span></div>
+<div class="gi" style="background:var(--blush)"><svg viewBox="0 0 100 100"><use href="#cake"/></svg><span>Desserts</span></div>
+<div class="gi" style="background:var(--sage)"><svg viewBox="0 0 100 100"><use href="#beans"/></svg><span>Our beans</span></div>
+</div></div></section>
+
+<section id="reviews"><div class="wrap">
+<div class="hd rv"><span class="eyebrow">Kind words</span><h2>Our guests <em>say</em></h2></div>
+<div class="rg">
+<article class="r rv"><div class="stars" aria-label="5 stars">★★★★★</div><p>The hazelnut latte is the best I've ever had, and the almond croissant disappears too fast. My Saturday ritual.</p><div class="who"><i style="background:var(--blush)">A</i><div>Aanya Mehta<small>Regular since 2021</small></div></div></article>
+<article class="r rv"><div class="stars" aria-label="5 stars">★★★★★</div><p>Perfect for working remotely. Quiet, great Wi-Fi, and the staff remember your order. It feels like a second home.</p><div class="who"><i style="background:var(--sage)">R</i><div>Rohan Kapoor<small>Freelance designer</small></div></div></article>
+<article class="r rv"><div class="stars" aria-label="5 stars">★★★★★</div><p>We celebrated our anniversary here. Gorgeous space, thoughtful service and the lemon tart was unforgettable.</p><div class="who"><i style="background:var(--butter)">S</i><div>Sara &amp; Imran<small>Weekend brunchers</small></div></div></article>
+</div></div></section>
+
+<section id="contact"><div class="wrap cg">
+<div class="rv"><span class="eyebrow">Visit us</span><h2>Come say <em>hello</em></h2>
+<ul class="ci">
+<li><span class="ic"><svg class="i" viewBox="0 0 24 24"><path d="M12 21s7-6 7-12a7 7 0 0 0-14 0c0 6 7 12 7 12z"/><circle cx="12" cy="9" r="2.5"/></svg></span><div>24 Linden Row, Old Town<small>Next to the old library</small></div></li>
+<li><span class="ic"><svg class="i" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span><div>Mon–Fri 7:30 am – 10 pm<small>Sat–Sun 8:00 am – 11 pm</small></div></li>
+<li><span class="ic"><svg class="i" viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg></span><div><a href="tel:+919000000000">+91 90000 00000</a></div></li>
+<li><span class="ic"><svg class="i" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="m3 8 9 6 9-6"/></svg></span><div><a href="mailto:hello@maisonnoisette.example">hello@maisonnoisette.example</a></div></li></ul>
+<div class="cta" style="margin:0"><a class="btn p" href="https://www.google.com/maps/search/?api=1&query=24+Linden+Row+Old+Town" target="_blank" rel="noopener">Get Directions</a><a class="btn g" href="https://wa.me/919000000000" target="_blank" rel="noopener">WhatsApp Us</a></div></div>
+<div class="map rv" role="img" aria-label="Stylised map showing Maison Noisette location">
+<svg class="m" viewBox="0 0 400 360" preserveAspectRatio="xMidYMid slice"><rect width="400" height="360" fill="#DDE7D6"/><g fill="#C9DAC0"><rect x="20" y="30" width="110" height="80" rx="14"/><rect x="250" y="220" width="120" height="100" rx="14"/></g><path d="M0 200Q120 170 220 210T400 160" stroke="#BFD4E0" stroke-width="30" fill="none"/><g stroke="#fffaf3" stroke-width="14" fill="none" stroke-linecap="round"><path d="M-10 120H410M200-10V370M60 330L340 30"/></g><g stroke="#fffaf3" stroke-width="7" fill="none"><path d="M0 280H410M110 0V370M310 0V370"/></g></svg>
+<div class="pin"><b>Maison Noisette</b><i></i></div></div>
+</div></section>
+
+<section id="reserve"><div class="wrap"><div class="fin rv">
+<span class="eyebrow" style="color:var(--blush)">Reservations</span>
+<h2>Make Your Next Coffee <em>Moment</em> Special</h2>
+<p>Reserve a table in seconds — we'll have the kettle warm.</p>
+<form id="rf"><input aria-label="Your name" placeholder="Your name" required><input type="date" aria-label="Date" required><select aria-label="Time"><option>9:00 am</option><option>11:00 am</option><option>1:00 pm</option><option>4:00 pm</option><option>7:00 pm</option></select><select aria-label="Guests"><option>2 guests</option><option>1 guest</option><option>3 guests</option><option>4 guests</option><option>5+ guests</option></select><button class="btn p" type="submit">Reserve a Table</button></form>
+<div id="ok" role="status"></div>
+</div></div></section>
+</main>
+
+<footer><div class="wrap">
+<div class="fg2">
+<div><a class="logo" href="#home"><b>N</b>Maison Noisette</a><p style="margin-top:14px;max-width:320px">Small-batch coffee and handmade pastries in the heart of Old Town.</p>
+<div class="so"><a href="#" aria-label="Instagram"><svg class="i" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".6"/></svg></a><a href="#" aria-label="Facebook"><svg class="i" viewBox="0 0 24 24"><path d="M14 8h3V4h-3a4 4 0 0 0-4 4v3H7v4h3v6h4v-6h3l1-4h-4V8z"/></svg></a><a href="#" aria-label="X"><svg class="i" viewBox="0 0 24 24"><path d="M4 4l16 16M20 4 4 20"/></svg></a></div></div>
+<div><h4>Quick links</h4><ul><li><a href="#about">About</a></li><li><a href="#menu">Menu</a></li><li><a href="#gallery">Gallery</a></li><li><a href="#contact">Contact</a></li></ul></div>
+<div><h4>Hours</h4><ul><li>Mon–Fri · 7:30 am – 10 pm</li><li>Sat–Sun · 8 am – 11 pm</li></ul></div>
+</div>
+<div class="cp"><span>© 2026 Maison Noisette. All rights reserved.</span><span>Demo website design</span></div>
+</div></footer>
+
+<script>
+const M=[
+["Coffee","Hazelnut Latte","House-roasted espresso, steamed milk, toasted hazelnut.","₹280","cup","var(--blush)"],
+["Coffee","Rose Cardamom Flat White","Silky microfoam with a whisper of rose and cardamom.","₹310","cup","var(--butter)"],
+["Coffee","Vanilla Cold Brew","18-hour cold brew over ice with Madagascan vanilla.","₹290","ice","var(--sage)"],
+["Breakfast","Almond Croissant","Twice-baked, frangipane-filled and dusted with sugar.","₹220","cro","var(--butter)"],
+["Breakfast","Avocado Sourdough","Smashed avocado, poached egg, chilli oil, microgreens.","₹420","toast","var(--sage)"],
+["Breakfast","Honey Ricotta Toast","Whipped ricotta, wildflower honey and toasted walnuts.","₹360","toast","var(--blush)"],
+["Desserts","Lemon Berry Tart","Buttery shell, lemon curd, fresh seasonal berries.","₹340","tart","var(--butter)"],
+["Desserts","Strawberry Cream Slice","Vanilla sponge layered with cream and macerated strawberries.","₹320","cake","var(--blush)"],
+["Desserts","Pistachio Tart","Rich pistachio frangipane with a crisp sablé base.","₹360","tart","var(--sage)"]];
+const cats=["All","Coffee","Breakfast","Desserts"],tb=document.getElementById("tb"),mg=document.getElementById("mg");
+function show(c){mg.innerHTML=M.filter(m=>c=="All"||m[0]==c).map(m=>`<article class="mc"><div class="mi" style="background:${m[5]}" role="img" aria-label="${m[1]} illustration"><svg viewBox="0 0 100 100"><use href="#${m[4]}"/></svg></div><div class="mb"><div class="mt"><h3>${m[1]}</h3><span>${m[3]}</span></div><p>${m[2]}</p></div></article>`).join("");
+[...tb.children].forEach(b=>b.setAttribute("aria-pressed",b.textContent==c))}
+cats.forEach(c=>{const b=document.createElement("button");b.textContent=c;b.onclick=()=>show(c);tb.append(b)});show("All");
+const h=document.getElementById("hd"),bg=document.getElementById("bg"),ln=document.getElementById("ln");
+const sc=()=>h.classList.toggle("s",scrollY>20);sc();addEventListener("scroll",sc,{passive:true});
+bg.onclick=()=>{const o=ln.classList.toggle("o");bg.setAttribute("aria-expanded",o);bg.setAttribute("aria-label",o?"Close menu":"Open menu");document.body.style.overflow=o?"hidden":""};
+ln.querySelectorAll("a").forEach(a=>a.onclick=()=>{ln.classList.remove("o");bg.setAttribute("aria-expanded",false);document.body.style.overflow=""});
+const io=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting){x.target.classList.add("v");io.unobserve(x.target)}}),{threshold:.12});
+document.querySelectorAll(".rv").forEach(el=>io.observe(el));
+document.getElementById("rf").onsubmit=e=>{e.preventDefault();document.getElementById("ok").textContent="Thank you! Your table request is received (demo). We'll confirm shortly.";e.target.reset()};
+</script>
+</body>
+</html>
